@@ -1,0 +1,158 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-sm);
+}
+
+.stage {
+  border-radius: 8px;
+  border: 1px solid var(--pim-border);
+  background-color: var(--pim-surface);
+  padding: var(--pim-space-sm);
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--pim-space-xs);
+  margin-bottom: var(--pim-space-xs);
+  cursor: pointer;
+  user-select: none;
+}
+
+.chevron {
+  margin-left: var(--pim-space-xs);
+  font-size: 10px;
+  color: var(--pim-text-muted);
+  transition: transform 0.15s;
+}
+
+.stageDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stageTitle {
+  font-family: var(--pim-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pim-text-muted);
+}
+
+.stageBadge {
+  margin-left: auto;
+  font-family: var(--pim-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pim-text-muted);
+}
+
+.card {
+  border-radius: 6px;
+  padding: var(--pim-space-sm);
+  margin-bottom: var(--pim-space-xs);
+  background-color: var(--pim-surface-alt);
+  cursor: pointer;
+  border: 1px solid var(--pim-border);
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--pim-state-audit-pending);
+}
+
+/* Must follow .card — overrides its border and background. */
+.cardSelected {
+  border-color: var(--pim-state-audit-pending);
+  background-color: #fffbeb;
+}
+
+.cardName {
+  font-family: var(--pim-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pim-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardMeta {
+  font-family: var(--pim-font-mono);
+  font-size: 11px;
+  color: var(--pim-text-muted);
+  margin-top: 2px;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--pim-space-xs);
+  margin-top: 6px;
+}
+
+.scoreBadge {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Pushed right so it keeps its place whether or not the card has a score yet. */
+.auditBtn {
+  margin-left: auto;
+  border-radius: 4px;
+  border: 1px solid var(--pim-border);
+  background-color: var(--pim-surface);
+  color: var(--pim-text-muted);
+  font-family: var(--pim-font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.auditBtn:hover:not(:disabled) {
+  border-color: var(--pim-state-audit-pending);
+  color: var(--pim-text);
+}
+
+.auditBtn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Must follow .scoreBadge — these are applied alongside it. */
+.scoreHigh {
+  background-color: #dcfce7;
+  color: var(--pim-score-high);
+}
+
+.scoreMid {
+  background-color: #fef9c3;
+  color: var(--pim-score-mid);
+}
+
+.scoreLow {
+  background-color: #fee2e2;
+  color: var(--pim-score-low);
+}
+
+.loading {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+  padding: var(--pim-space-sm);
+}
+
+.empty {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+  padding: var(--pim-space-xs) 0;
+}

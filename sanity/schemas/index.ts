@@ -1,0 +1,6 @@
+export { product } from './product'
+export { auditReport } from './auditReport'
+export { auditRule } from './auditRule'
+export { productVideo } from './productVideo'
+export { colorMapping } from './colorMapping'
+export { sizeMapping } from './sizeMapping'

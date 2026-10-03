@@ -1,0 +1,102 @@
+.panel {
+  background-color: var(--pim-surface);
+  border-radius: 8px;
+  border: 1px solid var(--pim-border);
+  padding: var(--pim-space-md);
+}
+
+.section {
+  margin-bottom: var(--pim-space-lg);
+}
+
+.title {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pim-text-muted);
+  margin-bottom: var(--pim-space-sm);
+}
+
+.bigStat {
+  font-family: var(--pim-font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--pim-text);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--pim-font-sans);
+  font-size: 11px;
+  color: var(--pim-text-muted);
+  margin-top: 2px;
+  margin-bottom: var(--pim-space-md);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--pim-space-xs) 0;
+  border-bottom: 1px solid var(--pim-border);
+}
+
+.rowLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--pim-space-xs);
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rowValue {
+  font-family: var(--pim-font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--pim-text);
+}
+
+.scoreDisplay {
+  font-family: var(--pim-font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Must follow .scoreDisplay — these are applied alongside it. */
+.scoreHigh {
+  color: var(--pim-score-high);
+}
+
+.scoreMid {
+  color: var(--pim-score-mid);
+}
+
+.scoreLow {
+  color: var(--pim-score-low);
+}
+
+.startBtn {
+  display: block;
+  width: 100%;
+  padding: var(--pim-space-sm);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px dashed var(--pim-border);
+  background-color: var(--pim-surface-alt);
+  color: var(--pim-text-muted);
+  text-align: center;
+  margin-top: var(--pim-space-md);
+}

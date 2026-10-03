@@ -1,0 +1,156 @@
+.page {
+  min-height: 100vh;
+  background: var(--pim-surface-alt);
+  color: var(--pim-text);
+  font-family: var(--pim-font-sans);
+  padding: var(--pim-space-xl) var(--pim-space-md);
+}
+
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-sm);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--pim-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pim-text-muted);
+}
+
+.title {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--pim-text-muted);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-md);
+  padding: var(--pim-space-lg);
+  background: var(--pim-surface);
+  border: 1px solid var(--pim-border);
+  border-radius: 10px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pim-text-muted);
+}
+
+.stages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pim-space-sm);
+}
+
+.stage {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pim-space-xs);
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid var(--pim-border);
+  border-radius: 999px;
+  background: var(--pim-surface-alt);
+}
+
+.stageDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--pim-text-muted);
+}
+
+.points {
+  margin: 0;
+  padding-left: 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-sm);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pim-text-muted);
+}
+
+.points strong {
+  color: var(--pim-text);
+  font-weight: 600;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pim-space-sm);
+}
+
+/* Base button. Modifiers below must follow it — CSS Modules resolve by
+   stylesheet source order, not by the order classes are listed on the node. */
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.primary {
+  background: var(--pim-text);
+  color: var(--pim-surface);
+}
+
+.primary:hover {
+  opacity: 0.88;
+}
+
+.secondary {
+  background: var(--pim-surface);
+  color: var(--pim-text);
+  border-color: var(--pim-border);
+}
+
+.secondary:hover {
+  border-color: var(--pim-text-muted);
+}
+
+.footer {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--pim-text-muted);
+}

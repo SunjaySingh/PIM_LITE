@@ -1,0 +1,63 @@
+{
+  "name": "pim-lite",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "studio": "node node_modules/.pnpm/node_modules/@sanity/cli/bin/run.js dev",
+    "sanity:deploy": "node node_modules/.pnpm/node_modules/@sanity/cli/bin/run.js deploy",
+    "schema:deploy": "node node_modules/.pnpm/node_modules/@sanity/cli/bin/run.js schema deploy",
+    "import": "tsx scripts/import-csv.ts",
+    "seed": "tsx scripts/seed-mappings.ts",
+    "workflow:deploy": "set -a; . ./.env.local; set +a; SANITY_AUTH_TOKEN=\"${SANITY_AUTH_TOKEN:-$SANITY_API_TOKEN}\" node_modules/.bin/sanity-workflows deploy --deployment amazon-readiness-prod",
+    "workflow:check": "set -a; . ./.env.local; set +a; SANITY_AUTH_TOKEN=\"${SANITY_AUTH_TOKEN:-$SANITY_API_TOKEN}\" node_modules/.bin/sanity-workflows deploy --check",
+    "seed:rules": "node --env-file=.env.local scripts/seed-audit-rules.mjs",
+    "workflow:start": "tsx --env-file=.env.local scripts/start-workflow.ts",
+    "workflow:drain": "tsx --env-file=.env.local scripts/drain-effects.ts",
+    "audit:batch": "tsx --env-file=.env.local agent/auditAgent.ts --mode=batch",
+    "audit:single": "tsx --env-file=.env.local agent/auditAgent.ts --mode=single",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "remotion:render": "npx remotion render remotion/Root.tsx ProductPromo output/test-render.mp4",
+    "remotion:studio": "npx remotion studio remotion/Root.tsx"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^4.0.76",
+    "@ai-sdk/openai": "^4.0.72",
+    "@mastra/core": "^1.67.0",
+    "@remotion/cli": "^4.0.526",
+    "@sanity/icons": "^5.2.2",
+    "@sanity/sdk-react": "^3.3.0",
+    "@sanity/ui": "^4.2.1",
+    "@sanity/vision": "^6.16.0",
+    "@sanity/workflow-engine": "0.34.0",
+    "@sanity/workflow-react": "0.34.0",
+    "@sanity/workflow-sdk": "0.34.0",
+    "@sanity/workflow-studio": "0.34.0",
+    "next": "16.3.5",
+    "next-sanity": "^13.3.4",
+    "papaparse": "^5.7.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "^4.0.526",
+    "sanity": "^6.15.0",
+    "styled-components": "^6.5.3",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@sanity/workflow-cli": "0.34.0",
+    "@types/node": "^20",
+    "@types/papaparse": "^5.5.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@12.5.1"
+}

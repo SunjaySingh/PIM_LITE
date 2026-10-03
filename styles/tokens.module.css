@@ -1,0 +1,44 @@
+/*
+ * Design tokens for the PIM dashboard.
+ *
+ * Declared on a class rather than `:root` so they travel with the dashboard
+ * subtree. The dashboard renders in two places — the Next.js route at /studio
+ * and the standalone Sanity CLI Studio (Vite) — and only the former has a root
+ * layout where a global stylesheet could be imported. A CSS Module works
+ * identically under both bundlers.
+ *
+ * Keep in sync with tokens.ts, which mirrors these names for the handful of
+ * places that need a token as a JS string (inline styles, plain data objects).
+ */
+.tokens {
+  /* Status colours */
+  --pim-score-high: #22c55e;
+  --pim-score-mid: #eab308;
+  --pim-score-low: #ef4444;
+
+  /* Workflow state colours */
+  --pim-state-draft: #94a3b8;
+  --pim-state-audit-pending: #f59e0b;
+  --pim-state-audit-passed: #22c55e;
+  --pim-state-video-req: #3b82f6;
+  --pim-state-video-ready: #8b5cf6;
+  --pim-state-published: #10b981;
+
+  /* Surface */
+  --pim-surface: #ffffff;
+  --pim-surface-alt: #f8fafc;
+  --pim-border: #e2e8f0;
+  --pim-text: #0f172a;
+  --pim-text-muted: #64748b;
+
+  /* Spacing */
+  --pim-space-xs: 4px;
+  --pim-space-sm: 8px;
+  --pim-space-md: 16px;
+  --pim-space-lg: 24px;
+  --pim-space-xl: 32px;
+
+  /* Typography */
+  --pim-font-mono: 'JetBrains Mono', monospace;
+  --pim-font-sans: Inter, system-ui, sans-serif;
+}

@@ -1,0 +1,364 @@
+.panel {
+  background-color: var(--pim-surface);
+  border-radius: 8px;
+  border: 1px solid var(--pim-border);
+  padding: var(--pim-space-md);
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--pim-text-muted);
+  font-family: var(--pim-font-sans);
+  font-size: 14px;
+  text-align: center;
+}
+
+.name {
+  font-family: var(--pim-font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pim-text);
+  margin-bottom: 2px;
+}
+
+.sku {
+  font-family: var(--pim-font-mono);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pim-space-xs) var(--pim-space-sm);
+  margin-bottom: var(--pim-space-md);
+  padding-bottom: var(--pim-space-md);
+  border-bottom: 1px solid var(--pim-border);
+}
+
+.metaLabel {
+  font-family: var(--pim-font-sans);
+  font-size: 10px;
+  color: var(--pim-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metaValue {
+  font-family: var(--pim-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pim-text);
+}
+
+.workflowBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-bottom: var(--pim-space-sm);
+  width: fit-content;
+}
+
+.workflowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.workflowUpdated {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: var(--pim-space-sm);
+  margin-bottom: var(--pim-space-md);
+}
+
+.scoreBig {
+  font-family: var(--pim-font-mono);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Must follow .scoreBig — these are applied alongside it. */
+.scoreHigh {
+  color: var(--pim-score-high);
+}
+
+.scoreMid {
+  color: var(--pim-score-mid);
+}
+
+.scoreLow {
+  color: var(--pim-score-low);
+}
+
+.scoreLabel {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+}
+
+.section {
+  margin-bottom: var(--pim-space-md);
+}
+
+.sectionTitle {
+  font-family: var(--pim-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pim-text-muted);
+  margin-bottom: var(--pim-space-xs);
+}
+
+.issue {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  padding: var(--pim-space-xs) var(--pim-space-sm);
+  border-radius: 4px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* Must follow .issue — these are applied alongside it. */
+.issueSupp {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.issueOpt {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.issueInfo {
+  background-color: #f0f9ff;
+  color: #075985;
+}
+
+.agentNotes {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+  margin-top: var(--pim-space-xs);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.recBlock {
+  margin-bottom: var(--pim-space-sm);
+  padding: var(--pim-space-xs) var(--pim-space-sm);
+  border-radius: 4px;
+  background-color: #f0fdf4;
+  border-left: 3px solid #16a34a;
+}
+
+.recLabel {
+  font-family: var(--pim-font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #15803d;
+  margin-bottom: 2px;
+}
+
+.recValue {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text);
+  line-height: 1.4;
+}
+
+.recMono {
+  font-family: var(--pim-font-mono);
+  font-size: 11px;
+  color: var(--pim-text);
+  word-break: break-all;
+}
+
+.recList {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.recListItem {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text);
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pim-space-xs);
+  margin-top: var(--pim-space-md);
+  padding-top: var(--pim-space-md);
+  border-top: 1px solid var(--pim-border);
+}
+
+.btn {
+  padding: var(--pim-space-sm) var(--pim-space-md);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+/* Must follow .btn — these are applied alongside it. */
+.btnPrimary {
+  background-color: var(--pim-state-audit-pending);
+  color: #ffffff;
+}
+
+.btnSuccess {
+  background-color: var(--pim-state-audit-passed);
+  color: #ffffff;
+}
+
+.btnVideo {
+  background-color: var(--pim-state-video-req);
+  color: #ffffff;
+}
+
+.btnApprove {
+  background-color: var(--pim-state-published);
+  color: #ffffff;
+}
+
+.btnApply {
+  background-color: #0891b2;
+  color: #ffffff;
+  margin-top: var(--pim-space-xs);
+  width: 100%;
+}
+
+.btnDisabled {
+  background-color: var(--pim-border);
+  color: var(--pim-text-muted);
+  cursor: not-allowed;
+}
+
+.reviewBanner {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #92400e;
+  background-color: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: var(--pim-space-xs) var(--pim-space-sm);
+  line-height: 1.4;
+}
+
+.btnReview {
+  background-color: #d97706;
+  color: #ffffff;
+}
+
+.approvedBadge {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #15803d;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  padding: var(--pim-space-sm) var(--pim-space-md);
+  text-align: center;
+}
+
+.publishedBadge {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  background-color: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 6px;
+  padding: var(--pim-space-sm) var(--pim-space-md);
+  text-align: center;
+}
+
+.actionStatus {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  color: var(--pim-text-muted);
+  text-align: center;
+}
+
+.videoBox {
+  border-radius: 6px;
+  padding: var(--pim-space-sm);
+  margin-bottom: var(--pim-space-sm);
+  border: 1px solid var(--pim-border);
+  background-color: var(--pim-surface-alt);
+}
+
+.videoStatus {
+  font-family: var(--pim-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.videoMeta {
+  font-family: var(--pim-font-mono);
+  font-size: 11px;
+  color: var(--pim-text-muted);
+}
+
+/* Must follow .videoStatus and .videoMeta — applied alongside both. */
+.videoReady {
+  color: var(--pim-state-audit-passed);
+}
+
+.videoRendering {
+  color: var(--pim-state-video-req);
+}
+
+.videoFailed {
+  color: var(--pim-score-low);
+}
+
+.videoPlayer {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  margin-top: var(--pim-space-xs);
+  background-color: #000;
+}
+
+.videoLink {
+  display: inline-block;
+  font-family: var(--pim-font-sans);
+  font-size: 11px;
+  color: var(--pim-state-video-req);
+  margin-top: var(--pim-space-xs);
+}

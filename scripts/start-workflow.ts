@@ -1,0 +1,107 @@
+/**
+ * Start an Amazon Readiness workflow instance for one product, or for a batch.
+ *
+ * The workflow's `start` block is interactive: instances are created on demand,
+ * never automatically when a product document appears. Something has to call
+ * `startInstance`, and this is the server-side way to do it.
+ *
+ *   pnpm workflow:start --id=product-05c2cbdb-…
+ *   pnpm workflow:start --sku=SKU12456894IF
+ *   pnpm workflow:start --limit=10          # first N master products with no instance
+ */
+
+import { createClient } from '@sanity/client'
+import {
+  createEngine,
+  gdrRef,
+  type WorkflowClient,
+  type WorkflowResource,
+} from '@sanity/workflow-engine'
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'dkhhaxxy'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production'
+const token = process.env.SANITY_API_TOKEN
+
+if (!token) throw new Error('SANITY_API_TOKEN is required to start workflow instances.')
+
+const DEFINITION = 'amazon-readiness'
+const TAG = 'prod'
+
+const workflowResource: WorkflowResource = {
+  type: 'dataset',
+  id: `${projectId}.${dataset}`,
+}
+
+// The engine pins its own API version, so this client's apiVersion is only used
+// for the plain content queries below.
+const client = createClient({
+  projectId,
+  dataset,
+  apiVersion: '2026-09-18',
+  useCdn: false,
+  token,
+})
+
+// `SanityClient` and `WorkflowClient` differ only in the variance of
+// `getDocument`'s generic return (`SanityDocument | undefined` versus
+// `T | null | undefined`), which structural typing rejects. The runtime
+// contract holds — this path is exercised by `pnpm workflow:start`.
+const engine = createEngine({
+  client: client as unknown as WorkflowClient,
+  workflowResource,
+  tag: TAG,
+})
+
+function arg(name: string): string | undefined {
+  return process.argv.find(a => a.startsWith(`--${name}=`))?.split('=')[1]
+}
+
+async function resolveTargets(): Promise<{ _id: string; name?: string }[]> {
+  const id = arg('id')
+  if (id) return client.fetch(`*[_id == $id]{_id, name}`, { id })
+
+  const sku = arg('sku')
+  if (sku) return client.fetch(`*[_type == "product" && sku == $sku]{_id, name}`, { sku })
+
+  const limit = Number(arg('limit') ?? 5)
+  return client.fetch(
+    `*[_type == "product" && productKind == "master"] | order(_updatedAt desc)[0...$limit]{_id, name}`,
+    { limit },
+  )
+}
+
+async function main() {
+  const targets = await resolveTargets()
+  if (targets.length === 0) {
+    console.log('No matching products.')
+    return
+  }
+
+  console.log(`Starting ${DEFINITION} for ${targets.length} product(s)…\n`)
+
+  for (const product of targets) {
+    // Drafts and published share one instance, addressed by the stable id
+    const documentId = product._id.replace(/^drafts\./, '')
+    try {
+      const result = await engine.startInstance({
+        definition: DEFINITION,
+        initialFields: [
+          {
+            type: 'subject',
+            name: 'subject',
+            value: gdrRef({ res: workflowResource, documentId, type: 'product' }),
+          },
+        ],
+      })
+      console.log(`  ✓ ${documentId} — ${product.name ?? '(no name)'}`)
+      console.log(`      ${JSON.stringify(result)}`)
+    } catch (err) {
+      console.error(`  ✗ ${documentId}: ${err instanceof Error ? err.message : String(err)}`)
+    }
+  }
+}
+
+main().catch(err => {
+  console.error(err)
+  process.exit(1)
+})
