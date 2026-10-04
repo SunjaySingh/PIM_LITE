@@ -31,6 +31,7 @@
     "@ai-sdk/openai": "^4.0.72",
     "@mastra/core": "^1.67.0",
     "@remotion/cli": "^4.0.526",
+    "@sanity/client": "^7.27.0",
     "@sanity/icons": "^5.2.2",
     "@sanity/sdk-react": "^3.3.0",
     "@sanity/ui": "^4.2.1",
