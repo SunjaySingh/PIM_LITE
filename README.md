@@ -76,7 +76,7 @@ Transitions out of `audit-pending` are gated on the readiness score:
 Those thresholds live in `sanity.workflow.ts` and nowhere else.
 
 ## Demo
-Include a video
+https://www.youtube.com/watch?v=YvP8RsqQ3Gg
 
 ## Code
 https://github.com/SunjaySingh/PIM_LITE
